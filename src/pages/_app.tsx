@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle theme={theme === true ? dark : light} />
-      <Component {...pageProps} />
+      <Component {...pageProps} theme={theme} setTheme={setTheme} />
     </>
   );
 }
