@@ -17,15 +17,15 @@ export function SidebarNav() {
           Home
         </NavLink>
 
-        <NavLink icon={RiStackLine} href="#">
+        <NavLink icon={RiStackLine} href="#portfolio">
           Portfolio
         </NavLink>
 
-        <NavLink icon={RiToolsLine} href="#">
+        <NavLink icon={RiToolsLine} href="#projects">
           Projects
         </NavLink>
 
-        <NavLink icon={RiContactsLine} href="#">
+        <NavLink icon={RiContactsLine} href="#contact">
           Contact
         </NavLink>
       </NavSection>
