@@ -70,7 +70,7 @@ export function Intro() {
           <Text fontSize={["large", "xl", "2xl", "3xl"]} ref={textRef} />
         </Box>
         <Link
-          href="#portfolio"
+          href="/portfolio"
           display="flex"
           alignItems="center"
           justifyContent="center"
