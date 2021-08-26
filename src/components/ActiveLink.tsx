@@ -16,14 +16,15 @@ export function ActiveLink({
 
   let isActive = false;
 
-  if (asPath.substr(1) === rest.href || asPath.substr(1) === rest.as) {
+  if (asPath.substr(1) === rest.href) {
     isActive = true;
+    console.log(asPath, rest.href);
   }
 
   return (
     <Link {...rest}>
       {cloneElement(children, {
-        color: isActive ? "pink.400" : "gray.50",
+        color: isActive ? "gray.800" : "pink.50",
       })}
     </Link>
   );

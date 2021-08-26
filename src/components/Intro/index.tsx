@@ -21,6 +21,7 @@ export function Intro() {
       alignItems="center"
       justifyContent="center"
       width="100vw"
+      height="80vh"
       flexDirection={["column", "row"]}
     >
       <Box
@@ -55,21 +56,21 @@ export function Intro() {
         flexDirection="column"
       >
         <Box
-          width={["100%", "80%"]}
+          width={["100%", "128"]}
           height="64"
           p={50}
           mt={["8", "16"]}
           overflow="hidden"
-          border="1px"
         >
-          <Text fontSize={["2xl", "3xl"]}>Hi There, I'm</Text>
-          <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          <Text fontSize={["large", "xl", "2xl", "3xl"]}>Hi There, I'm</Text>
+          <Text fontSize={["2xl", "3xl", "4xl", "5xl"]} fontWeight="bold">
             Emanuel Vitor
           </Text>
-          <Text fontSize="large" ref={textRef} />
+          <Text fontSize={["large", "xl", "2xl", "3xl"]} ref={textRef} />
         </Box>
         <Link
-          href="#intro"
+          href="#portfolio"
           display="flex"
           alignItems="center"
           justifyContent="center"
