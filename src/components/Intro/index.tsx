@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Flex, Box, Text, Image, Link } from "@chakra-ui/react";
+import Link, { LinkProps } from "next/link";
+import { Flex, Box, Text, Image, Link as ChakraLink } from "@chakra-ui/react";
 import { init } from "ityped";
 
 export function Intro() {
@@ -69,21 +70,22 @@ export function Intro() {
           </Text>
           <Text fontSize={["large", "xl", "2xl", "3xl"]} ref={textRef} />
         </Box>
-        <Link
-          href="/portfolio"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          position="absolute"
-          width="100%"
-          bottom="1%"
-        >
-          <Image
-            src="assets/down.png"
-            alt="down arrow"
-            width={35}
-            cursor="pointer"
-          />
+        <Link href="/portfolio" passHref>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            position="absolute"
+            width="100%"
+            bottom="1%"
+          >
+            <Image
+              src="assets/down.png"
+              alt="down arrow"
+              width={35}
+              cursor="pointer"
+            />
+          </Box>
         </Link>
       </Box>
     </Flex>
