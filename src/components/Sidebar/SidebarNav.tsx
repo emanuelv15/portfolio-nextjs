@@ -13,19 +13,19 @@ export function SidebarNav() {
   return (
     <Stack spacing="12" align="flex-start">
       <NavSection title="">
-        <NavLink icon={RiHomeLine} href="#intro">
+        <NavLink icon={RiHomeLine} href="/">
           Home
         </NavLink>
 
-        <NavLink icon={RiStackLine} href="#portfolio">
+        <NavLink icon={RiStackLine} href="/portfolio">
           Portfolio
         </NavLink>
 
-        <NavLink icon={RiToolsLine} href="#projects">
+        <NavLink icon={RiToolsLine} href="/projects">
           Projects
         </NavLink>
 
-        <NavLink icon={RiContactsLine} href="#contact">
+        <NavLink icon={RiContactsLine} href="/contact">
           Contact
         </NavLink>
       </NavSection>
