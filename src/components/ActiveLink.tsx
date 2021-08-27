@@ -16,9 +16,8 @@ export function ActiveLink({
 
   let isActive = false;
 
-  if (asPath.substr(1) === rest.href) {
+  if (asPath === rest.href || asPath === rest.as) {
     isActive = true;
-    console.log(asPath, rest.href);
   }
 
   return (
