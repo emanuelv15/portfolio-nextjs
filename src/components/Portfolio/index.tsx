@@ -7,7 +7,9 @@ import {
   List,
   Link as ChakraLink,
   Button,
+  useBreakpointValue,
 } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 import {
   frontPortfolio,
@@ -26,9 +28,16 @@ interface Data {
 }
 
 export function Portfolio() {
+  const isWideVersion = useBreakpointValue({
+    base: 3,
+    md: 8,
+  });
+
+  console.log(isWideVersion);
+
   const [selected, setSelected] = useState("front");
   const [data, setData] = useState<Data[]>([] as Data[]);
-  const [nextPage, setNextPage] = useState(6);
+  const [nextPage, setNextPage] = useState(isWideVersion);
   const [previousPage, setPreviousPage] = useState(0);
 
   const list = [
@@ -43,35 +52,35 @@ export function Portfolio() {
     switch (selected) {
       case "front":
         setData(frontPortfolio);
-        setNextPage(6);
+        setNextPage(isWideVersion);
         setPreviousPage(0);
         break;
       case "mobile":
         setData(mobilePortfolio);
-        setNextPage(6);
+        setNextPage(isWideVersion);
         setPreviousPage(0);
         break;
       case "back":
         setData(backPortfolio);
-        setNextPage(6);
+        setNextPage(isWideVersion);
         setPreviousPage(0);
         break;
       case "other":
         setData(otherPortfolio);
-        setNextPage(6);
+        setNextPage(isWideVersion);
         setPreviousPage(0);
         break;
     }
   }, [selected]);
 
   function handlePreviousPage() {
-    setNextPage(nextPage - 6);
-    setPreviousPage(previousPage - 6);
+    setNextPage(nextPage - isWideVersion);
+    setPreviousPage(previousPage - isWideVersion);
   }
 
   function handleNextPage() {
-    setNextPage(nextPage + 6);
-    setPreviousPage(previousPage + 6);
+    setNextPage(nextPage + isWideVersion);
+    setPreviousPage(previousPage + isWideVersion);
   }
 
   return (
@@ -90,7 +99,9 @@ export function Portfolio() {
         alignItems="center"
         justifyContent="center"
       >
-        <Text>Projects</Text>
+        <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
+          Projects
+        </Text>
 
         <List m="10px" p="0" listStyle="none" display="flex" overflow="hidden">
           {list.map((item) => (
@@ -106,17 +117,18 @@ export function Portfolio() {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          flexWrap="wrap"
-          w="650px"
-          h="400px"
+          flexDirection={["column", "row"]}
+          flexWrap={["unset", "wrap"]}
+          w={["400px", "800px"]}
+          h="350px"
         >
           {data.map((item, index) => {
             if (index < nextPage && index >= previousPage) {
               return (
                 <Flex
                   key={item.id}
-                  w="32"
-                  h="32"
+                  w={["110px", "115px", "32"]}
+                  h={["110px", "115px", "32"]}
                   borderRadius="20px"
                   border="1px solid black"
                   margin="10px 20px"
@@ -155,7 +167,7 @@ export function Portfolio() {
         </Flex>
         <Flex
           w="100%"
-          h="20%"
+          h="8"
           display="flex"
           flexDirection="row"
           alignItems="center"
@@ -165,6 +177,7 @@ export function Portfolio() {
             <Button
               w="32"
               h="8"
+              bg="gray.800"
               border="none"
               borderRadius="10px"
               onClick={() => handlePreviousPage()}
@@ -176,6 +189,7 @@ export function Portfolio() {
             <Button
               w="32"
               h="8"
+              bg="gray.800"
               border="none"
               borderRadius="10px"
               onClick={() => handleNextPage()}

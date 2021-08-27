@@ -15,8 +15,10 @@ export function PortfolioList({
   return (
     <Flex>
       <ListItem
-        mr="50px"
-        p="7px"
+        fontSize={["small", "large", "large", "xl"]}
+        fontWeight="500"
+        mr={["10px", "50px"]}
+        p={["0", "7px"]}
         borderRadius="10px"
         cursor="pointer"
         onClick={() => setSelected(item.id)}
