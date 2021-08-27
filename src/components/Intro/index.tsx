@@ -33,8 +33,8 @@ export function Intro() {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width={["400", "550"]}
-        height={["400", "550"]}
+        width={["400", "500"]}
+        height={["400", "500"]}
       >
         <Box display="flex" alignItems="center" justifyContent="center">
           <Image
