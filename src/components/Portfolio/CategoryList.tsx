@@ -28,7 +28,7 @@ export function CategoryList({
         outline: "none",
       }}
     >
-      <Stack spacing={["4", "16"]} direction="row">
+      <Stack spacing={["2", "2", "16"]} direction="row">
         {list.map((item) => (
           <Category
             key={item.id}

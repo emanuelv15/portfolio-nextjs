@@ -102,8 +102,8 @@ export function Portfolio() {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          flexDirection={["column", "row"]}
-          flexWrap={["unset", "wrap"]}
+          flexDirection={["column", "column", "row"]}
+          flexWrap={["unset", "unset", "wrap"]}
           w={["400px", "800px"]}
           h="350px"
         >
