@@ -31,6 +31,9 @@ export function Header() {
           variant="unstyled"
           onClick={onOpen}
           mr="2"
+          _focus={{
+            outline: "none",
+          }}
         ></IconButton>
       )}
       <Logo />
