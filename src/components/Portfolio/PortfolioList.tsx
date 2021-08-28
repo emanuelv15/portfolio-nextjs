@@ -1,30 +1,71 @@
-import { Dispatch, SetStateAction } from "react";
-import { Flex, Box, Text, Image, Link, ListItem } from "@chakra-ui/react";
+import {
+  Flex,
+  Link as ChakraLink,
+  Image,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
-interface PortfolioListProps {
-  item: { id: string; title: string };
-  active: boolean;
-  setSelected: Dispatch<SetStateAction<string>>;
+interface PortfolioListListProps {
+  item: {
+    id: number;
+    title: string;
+    git?: string;
+    img: string;
+  };
 }
 
-export function PortfolioList({
-  item,
-  active,
-  setSelected,
-}: PortfolioListProps) {
+export function PortfolioList({ item }: PortfolioListListProps) {
+  const isWideVersion = useBreakpointValue({
+    base: true,
+    lg: false,
+  });
+
   return (
-    <Flex>
-      <ListItem
-        fontSize={["small", "large", "large", "xl"]}
-        fontWeight="500"
-        mr={["10px", "50px"]}
-        p={["0", "7px"]}
-        borderRadius="10px"
-        cursor="pointer"
-        onClick={() => setSelected(item.id)}
+    <Flex
+      key={item.id}
+      w={["110px", "115px", "32"]}
+      h={["110px", "115px", "32"]}
+      borderRadius="20px"
+      border="1px solid black"
+      margin="10px 20px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      transition="all 0.5s ease"
+      cursor="pointer"
+      _focus={{ outline: "none" }}
+      _hover={{ bg: !isWideVersion && "gray.800" }}
+    >
+      <ChakraLink
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        w="100%"
+        h="100%"
+        href={item.git}
+        target="_blank"
+        rel="noreferrer"
+        _focus={{ outline: "none" }}
       >
-        {item.title}
-      </ListItem>
+        <Image
+          w="100%"
+          h="100%"
+          borderRadius="20px"
+          objectFit="cover"
+          zIndex="1"
+          src={item.img}
+          alt="project preview"
+          _focus={{ outline: "none" }}
+          _hover={{
+            opacity: !isWideVersion && "0.2",
+            zIndex: !isWideVersion && "1",
+          }}
+        />
+        <Text position="absolute" fontWeight="bold">
+          {item.title}
+        </Text>
+      </ChakraLink>
     </Flex>
   );
 }
